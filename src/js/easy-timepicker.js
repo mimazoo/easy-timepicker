@@ -113,9 +113,17 @@ angular.module('easyTimepicker', ['ui.bootstrap'])
         }
       };
 
+      var setModelTimeFromWidget = function() {
+        scope.time = scope.widget.hours + ':' + scope.widget.minutes;
+
+        if (scope.showMeridian) {
+          scope.time += ' ' + scope.widget.meridian;
+        }
+      };
+
       var updateModel = function() {
         if (angular.isDefined(scope.widget.hours) && angular.isDefined(scope.widget.minutes)) {
-          scope.time = scope.widget.hours + ':' + scope.widget.minutes + ' ' + scope.widget.meridian;
+          setModelTimeFromWidget();
         } else {
           setTime(scope.time);
         }
@@ -206,7 +214,7 @@ angular.module('easyTimepicker', ['ui.bootstrap'])
 
         formatMinutes();
 
-        scope.time = scope.widget.hours + ':' + scope.widget.minutes + ' ' + scope.widget.meridian;
+        setModelTimeFromWidget();
       };
 
       element.find('.hours-col').on('mousewheel wheel', scrollHours);
