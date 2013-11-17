@@ -22,7 +22,11 @@ angular.module('easyTimepicker', ['ui.bootstrap'])
     },
     link: function(scope, element, attrs) {
       scope.minuteStep = parseInt(attrs.minuteStep, 10) || EasyTimepickerConfig.minuteStep;
-      scope.showMeridian = scope.$eval(attrs.showMeridian) || EasyTimepickerConfig.showMeridian;
+
+      //attribute value overrides config setting
+      var evalShowMeridian = scope.$eval(attrs.showMeridian);
+      scope.showMeridian = angular.isDefined(evalShowMeridian) ? evalShowMeridian : EasyTimepickerConfig.showMeridian;
+      
       scope.meridians = attrs.meridians || EasyTimepickerConfig.meridians;
       scope.inputClass = attrs.inputClass || EasyTimepickerConfig.inputClass;
       scope.inputContainerClass = attrs.inputContainerClass || EasyTimepickerConfig.inputContainerClass;
