@@ -34,6 +34,7 @@ The following options can be set either through data attributes on the time inpu
   meridians: ['AM', 'PM'],
   inputClass: 'form-control',
   inputContainerClass: 'input-group',
+  showIcon: true,
   clockIconClass: 'icon-clock',
   widgetColClass: 'col-xs-4',
   incIconClass: 'icon-chevron-up',
