@@ -1,7 +1,7 @@
 <div class="dropdown easy-timepicker-container">
   <div class="dropdown-toggle" ng-class="inputContainerClass">
     <input class="time-input" type="text" ng-model="time" ng-blur="updateFromInput()" ng-class="inputClass"/>
-    <span class="input-group-btn">
+    <span class="input-group-btn" ng-if="showIcon">
       <a class="btn btn-default">
         <i ng-class="clockIconClass"></i>
       </a>

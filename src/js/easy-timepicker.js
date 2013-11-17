@@ -6,6 +6,7 @@ angular.module('easyTimepicker', ['ui.bootstrap'])
   meridians: ['AM', 'PM'],
   inputClass: 'form-control',
   inputContainerClass: 'input-group',
+  showIcon: true,
   clockIconClass: 'icon-time',
   widgetColClass: 'col-xs-4',
   incIconClass: 'icon-chevron-up',
@@ -30,6 +31,11 @@ angular.module('easyTimepicker', ['ui.bootstrap'])
       scope.meridians = attrs.meridians || EasyTimepickerConfig.meridians;
       scope.inputClass = attrs.inputClass || EasyTimepickerConfig.inputClass;
       scope.inputContainerClass = attrs.inputContainerClass || EasyTimepickerConfig.inputContainerClass;
+
+       //attribute value overrides config setting
+      var evalShowIcon = scope.$eval(attrs.showIcon);
+      scope.showIcon = angular.isDefined(evalShowIcon) ? evalShowIcon : EasyTimepickerConfig.showIcon;
+
       scope.clockIconClass = attrs.clockIconClass || EasyTimepickerConfig.clockIconClass;
       scope.widgetColClass = attrs.widgetColClass || EasyTimepickerConfig.widgetColClass;
       scope.incIconClass = attrs.incIconClass || EasyTimepickerConfig.incIconClass;

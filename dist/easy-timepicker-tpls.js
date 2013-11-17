@@ -4,7 +4,7 @@ angular.module('easyTimepicker').run(['$templateCache', function($templateCache)
     "<div class=\"dropdown easy-timepicker-container\">\n" +
     "  <div class=\"dropdown-toggle\" ng-class=\"inputContainerClass\">\n" +
     "    <input class=\"time-input\" type=\"text\" ng-model=\"time\" ng-blur=\"updateFromInput()\" ng-class=\"inputClass\"/>\n" +
-    "    <span class=\"input-group-btn\">\n" +
+    "    <span class=\"input-group-btn\" ng-if=\"showIcon\">\n" +
     "      <a class=\"btn btn-default\">\n" +
     "        <i ng-class=\"clockIconClass\"></i>\n" +
     "      </a>\n" +
